@@ -1,0 +1,16 @@
+def solution(N) -> int:
+    '''
+    Function: Returns longest gap
+    Input: N, an integer 
+    Output: Longest_Gap, an integer 
+    '''
+    binary = bin(N)[2::]
+    gaps = binary.split('1')
+
+    if '0' in gaps[-1]:
+        gaps.pop(-1)
+
+    long_gap = max(gaps, key = len) 
+
+    return len(long_gap)  
+
