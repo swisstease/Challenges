@@ -20,16 +20,22 @@ N is an integer within the range [1..2,147,483,647].
 
 def solution(N) -> int:
     '''
-    Function: Returns longest gap
+    Function: Find longest sequence of zeros in binary representation of an integer.
     Input: N, an integer 
-    Output: Longest_Gap, an integer 
+    Output: len(Longest_gap), an integer, represents the amount of 0 in longest sequence
     '''
+
+    # convert to binary (string)
     binary = bin(N)[2::]
+
+    #seperate 0 and 1, with 1 being ''
     gaps = binary.split('1')
 
+    #if trailing 0 -> exclude from list 
     if '0' in gaps[-1]:
         gaps.pop(-1)
 
+    #return biggest 0 
     long_gap = max(gaps, key = len) 
 
     return len(long_gap)  
